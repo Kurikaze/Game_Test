@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Game_Test" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Game_Test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+					<Add directory="D:/SFML/SFML-2.4.2/include" />
+					<Add directory="C:/Users/Huy/Documents/Cpp_Projects/Game_Test/" />
+				</Compiler>
+				<Linker>
+					<Add library="sfml-graphics-d" />
+					<Add library="sfml-window-d" />
+					<Add library="sfml-system-d" />
+					<Add library="sfml-network-d" />
+					<Add library="sfml-audio-d" />
+					<Add directory="D:/SFML/SFML-2.4.2/lib" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Game_Test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c++11" />
+					<Add directory="D:/SFML/SFML-2.4.2/include" />
+					<Add directory="C:/Users/Huy/Documents/Cpp_Projects/Game_Test/" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-window" />
+					<Add library="sfml-system" />
+					<Add library="sfml-network" />
+					<Add library="sfml-audio" />
+					<Add directory="D:/SFML/SFML-2.4.2/lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="include/Animal.hpp" />
+		<Unit filename="include/AnimatedSprite.hpp" />
+		<Unit filename="include/Application.hpp" />
+		<Unit filename="include/CharactersState.hpp" />
+		<Unit filename="include/Command.hpp" />
+		<Unit filename="include/CommandQueue.hpp" />
+		<Unit filename="include/CountDownState.hpp" />
+		<Unit filename="include/Entity.hpp" />
+		<Unit filename="include/GameOverState.hpp" />
+		<Unit filename="include/GameState.hpp" />
+		<Unit filename="include/GameWorld.hpp" />
+		<Unit filename="include/LeaderBoardState.hpp" />
+		<Unit filename="include/MenuState.hpp" />
+		<Unit filename="include/MusicPlayer.hpp" />
+		<Unit filename="include/Object.hpp" />
+		<Unit filename="include/PauseState.hpp" />
+		<Unit filename="include/PlayerCreationState.hpp" />
+		<Unit filename="include/PlayerInfo.hpp" />
+		<Unit filename="include/PlayerInput.hpp" />
+		<Unit filename="include/PlayersState.hpp" />
+		<Unit filename="include/ResourceHolder.hpp" />
+		<Unit filename="include/ResourceHolder.inl" />
+		<Unit filename="include/ResourceIdentifiers.hpp" />
+		<Unit filename="include/SceneNode.hpp" />
+		<Unit filename="include/SpriteNode.hpp" />
+		<Unit filename="include/State.hpp" />
+		<Unit filename="include/StateStack.hpp" />
+		<Unit filename="include/TitleState.hpp" />
+		<Unit filename="include/gameConstants.hpp" />
+		<Unit filename="include/gameTypes.h" />
+		<Unit filename="src/Animal.cpp" />
+		<Unit filename="src/AnimatedSprite.cpp" />
+		<Unit filename="src/Application.cpp" />
+		<Unit filename="src/CharactersState.cpp" />
+		<Unit filename="src/CommandQueue.cpp" />
+		<Unit filename="src/CountDownState.cpp" />
+		<Unit filename="src/Entity.cpp" />
+		<Unit filename="src/GameOverState.cpp" />
+		<Unit filename="src/GameState.cpp" />
+		<Unit filename="src/GameWorld.cpp" />
+		<Unit filename="src/LeaderboardState.cpp" />
+		<Unit filename="src/MenuState.cpp" />
+		<Unit filename="src/MusicPlayer.cpp" />
+		<Unit filename="src/Object.cpp" />
+		<Unit filename="src/PauseState.cpp" />
+		<Unit filename="src/PlayerCreationState.cpp" />
+		<Unit filename="src/PlayerInput.cpp" />
+		<Unit filename="src/PlayersState.cpp" />
+		<Unit filename="src/SceneNode.cpp" />
+		<Unit filename="src/SpriteNode.cpp" />
+		<Unit filename="src/State.cpp" />
+		<Unit filename="src/StateStack.cpp" />
+		<Unit filename="src/TitleState.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
