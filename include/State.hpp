@@ -17,7 +17,7 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include "include/ResourceIdentifiers.hpp"
-#include "include/gameTypes.h"
+#include "include/gameTypes.hpp"
 #include "include/PlayerInfo.hpp"
 #include "include/MusicPlayer.hpp"
 
@@ -53,9 +53,9 @@ public:
 
 protected:
 
-    void            requestStackPush(StateID id);
-    void            requestStackPop();
-    void            requestStackClear();
+    void            requestStackPush(StateID id); //Push state corresponding to id on the state stack
+    void            requestStackPop();  //Pop the top state from state stack
+    void            requestStackClear(); //Clear all states on stack
 
     Context         getContext() const;
 

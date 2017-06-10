@@ -1,4 +1,12 @@
-
+/***********************************************************************************
+ * CharactersState.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Allow user to choose character.
+ ************************************************************************************/
 
 #ifndef CHARACTERSSTATE_HPP_INCLUDED
 #define CHARACTERSSTATE_HPP_INCLUDED
@@ -28,21 +36,21 @@ public:
     virtual void        draw();
 private:
     void                loadTextures();
-    void                buildScene();
+    void                buildScene(); //Build the graphics
     int                 getIndex(TextureID id); //Return index in mCharacterTextureID
 
 
     sf::RenderWindow&                           mWindow;
     PlayerInfo&                                 mPlayerInfo;
     std::array<TextureID, CHARACTERS_NUM>       mCharacterTextureID;
-    TextureHolder                               mTextures; //This is different from the textures of GameWorld,
+    TextureHolder                               mTextures; //This has different textures from the textures of GameWorld,
                                                           //although using same textureID (Trainer_000 - 066)
 
     sf::Sprite                                  mBackgroundSprite;
     std::array<sf::Sprite, CHARACTERS_NUM>      mCharacterSprites;
     sf::Text                                    mTitleText;
-    sf::RectangleShape                          mSelectShape;
-    sf::RectangleShape                          mSelectedShape;
+    sf::RectangleShape                          mSelectShape; //The white rectangle box (located at current position)
+    sf::RectangleShape                          mSelectedShape; //The red rectangle box (located at chosen character)
 
     sf::Time                                    mElapsedTime;
 

@@ -1,3 +1,15 @@
+/***********************************************************************************
+ * SpriteNode.cpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Implementation file for class SpriteNode.
+ ************************************************************************************/
+
+
+
 #include "include/SpriteNode.hpp"
 SpriteNode::SpriteNode()
 {

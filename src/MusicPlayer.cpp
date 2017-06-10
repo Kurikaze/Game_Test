@@ -1,3 +1,15 @@
+/***********************************************************************************
+ * MusicPlayer.cpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Implementation file for class MusicPlayer.
+ ************************************************************************************/
+
+
+
 #include "include/MusicPlayer.hpp"
 
 MusicPlayer::MusicPlayer()
@@ -41,7 +53,7 @@ void MusicPlayer::setPaused(bool paused)
 
 void MusicPlayer::setVolume(float volume)
 {
-
+    //Used for SettingState (develop in future)
 }
 
 

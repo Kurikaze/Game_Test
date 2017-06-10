@@ -1,3 +1,13 @@
+/***********************************************************************************
+ * MenuState.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Main menu. Provide options of the game.
+ ************************************************************************************/
+
 #ifndef MENUSTATE_HPP_INCLUDED
 #define MENUSTATE_HPP_INCLUDED
 

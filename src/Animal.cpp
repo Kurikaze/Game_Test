@@ -46,6 +46,7 @@ void Animal::setAnimation(const sf::IntRect& spriteRect, const int row, const in
 
 void Animal::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
+    //Uncomment the next line to draw the boundary (used for debugging)
     //drawBound(target, states);
     target.draw(mSprite, states);
 

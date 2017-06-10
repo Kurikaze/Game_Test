@@ -1,3 +1,13 @@
+/***********************************************************************************
+ * AnimatedSprite.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Hold Sprite and perform animations.
+ ************************************************************************************/
+
 #ifndef ANIMATEDSPRITE_HPP_INCLUDED
 #define ANIMATEDSPRITE_HPP_INCLUDED
 #include <vector>
@@ -9,26 +19,36 @@
 class AnimatedSprite : public sf::Sprite
 {
 public:
-    AnimatedSprite();
-    AnimatedSprite(const sf::Texture & texture);
-    AnimatedSprite(const sf::Texture & texture, const sf::IntRect& spriteRect, const int row, const int col, const float freq = 1);
+            AnimatedSprite();
+            AnimatedSprite(const sf::Texture & texture);
+            AnimatedSprite(const sf::Texture & texture, const sf::IntRect& spriteRect, const int row, const int col, const float freq = 1);
+    //row and col are numbers of sprites per row and per column in spritesheet (passed as texture)
+    //spriteRect is a rectangle of the first sprite (length = (length of spritesheet) / (row); width = (width of spritesheet) / (col)))
+    //freq is the numbers of animation per frame
 
-    void initAnimation(const sf::IntRect& spriteRect, const int row, const int col, const float freq = 1);
-    void setFrequency(const float freq);
+    void    initAnimation(const sf::IntRect& spriteRect, const int row, const int col, const float freq = 1); //Call this function if these arguments have not been passed in constructor
 
-    void addSpriteRect(const sf::IntRect& rect);
-    void performAnimation();
+    void    setFrequency(const float freq);
+
+    //Add additional sprite rectangle
+    void    addSpriteRect(const sf::IntRect& rect);
+
+    //Call this function everyframe to proceed to next sprite rectangle (perform the next animation)
+    void    performAnimation();
 
 private:
-    void initSpriteRects();
+    void    initSpriteRects();  //Initialize all the sprite rectangle based the first sprite rectangle
+                                //and the number of sprites per row and per column in spritesheet
 
-    sf::Vector2f mInitialPoint;
-    sf::Vector2f mSpriteRectSize;
-    float mFrequency;
+    sf::Vector2f mInitialPoint; //Vector to top left corner of the first sprite rectangle
+    sf::Vector2f mSpriteRectSize; //Size of each sprite rectangle
+
+    float mFrequency; //Animation frequency
+
     int mSpritesPerRow;
     int mSpritesPerCol;
 
-    std::vector<sf::IntRect> mSpriteRects;
+    std::vector<sf::IntRect> mSpriteRects; //Contains all the sprite rectangles
 };
 
 

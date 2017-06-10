@@ -1,3 +1,13 @@
+/***********************************************************************************
+ * PauseState.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Pause the game. Triggered when press a specific key while the game is running.
+ ************************************************************************************/
+
 #ifndef PAUSESTATE_HPP_INCLUDED
 #define PAUSESTATE_HPP_INCLUDED
 

@@ -36,7 +36,7 @@ void ResourceHolder<ResourceType, IdentifierType>::load (IdentifierType id, cons
     assert(inserted.second && "Could not insert into map (The ID already inserted)");
 }
 
-//Return resource for the id
+//Return resource that matches the id
 template <typename ResourceType, typename IdentifierType>
 ResourceType& ResourceHolder<ResourceType, IdentifierType>::get(IdentifierType id)
 {

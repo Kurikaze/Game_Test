@@ -1,3 +1,13 @@
+/***********************************************************************************
+ * LeaderboardState.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Display top players with their names and scores.
+ ************************************************************************************/
+
 #ifndef LEADERBOARDSTATE_HPP_INCLUDED
 #define LEADERBOARDSTATE_HPP_INCLUDED
 

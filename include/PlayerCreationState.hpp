@@ -1,3 +1,13 @@
+/***********************************************************************************
+ * PlayerCreationState.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Allow user to create new player name.
+ ************************************************************************************/
+
 #ifndef PLAYERCREATIONSTATE_HPP_INCLUDED
 #define PLAYERCREATIONSTATE_HPP_INCLUDED
 

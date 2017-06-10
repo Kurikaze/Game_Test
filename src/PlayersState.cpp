@@ -1,3 +1,14 @@
+/***********************************************************************************
+ * PlayersState.cpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Implementation file for class PlayersState.
+ ************************************************************************************/
+
+
 #include "include/PlayersState.hpp"
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <fstream>
@@ -46,13 +57,13 @@ bool PlayersState::handleEvent(const sf::Event& event)
 {
     if (event.type != sf::Event::KeyPressed)
         return false;
-    if (event.key.code == sf::Keyboard::Up)
+    if (event.key.code == sf::Keyboard::Up) //Move cursor to previous entry
     {
         if (mOptionIndex > 0)
             mOptionIndex--;
 
 
-        //If selected text lies outside bounds
+        //If selected text lies outside view, move the list downwards
         if (mOptionIndex < mLowerIndex)
         {
             moveOptionText(0.f, (mLowerIndex - mOptionIndex)*(TEXT_SIZE + TEXT_SPACE));
@@ -62,12 +73,12 @@ bool PlayersState::handleEvent(const sf::Event& event)
 
         updateOptionText();
     }
-    else if (event.key.code == sf::Keyboard::Down)
+    else if (event.key.code == sf::Keyboard::Down) //Move cursor to next entry
     {
         if (mOptionIndex <= mPlayerCount - 2)
             mOptionIndex ++;
 
-        //If selected text lies outside bounds
+        //If selected text lies outside view, move the list upwards
         if (mOptionIndex > mUpperIndex)
         {
             moveOptionText(0.f, (-1.f)*(mOptionIndex - mUpperIndex)*(TEXT_SIZE + TEXT_SPACE));
@@ -78,12 +89,12 @@ bool PlayersState::handleEvent(const sf::Event& event)
 
         updateOptionText();
     }
-    else if (event.key.code == sf::Keyboard::Return)
+    else if (event.key.code == sf::Keyboard::Return) //Select current entry
     {
         getContext().playerInfo->name = mPlayerNames[mOptionIndex];
         requestStackPop();
     }
-    else if (event.key.code == sf::Keyboard::Escape)
+    else if (event.key.code == sf::Keyboard::Escape) //Escape pressed, return to menu.
     {
         requestStackPop();
     }
@@ -141,7 +152,7 @@ void PlayersState::updateOptionText()
 
     for (int i = 0; i < mPlayerCount; i++)
     {
-        if (i >= mLowerIndex && i <= mUpperIndex) //If text inside bound
+        if (i >= mLowerIndex && i <= mUpperIndex) //If text inside view
             mOptions[i].setFillColor(sf::Color::Blue);
         else
             mOptions[i].setFillColor(sf::Color::Transparent);

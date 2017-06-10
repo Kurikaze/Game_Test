@@ -1,3 +1,13 @@
+/***********************************************************************************
+ * CountDownState.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Count down when user unpause the game.
+ ************************************************************************************/
+
 #ifndef COUNTDOWNSTATE_HPP_INCLUDED
 #define COUNTDOWNSTATE_HPP_INCLUDED
 

@@ -80,7 +80,7 @@ bool CharactersState::handleEvent(const sf::Event& event)
     {
         if (mRow > 0)
             mRow--;
-        else
+        else //If the cursor goes beyond the top, it will return to the bottom
             mRow = ROW_NUM - 1;
 
     }
@@ -88,7 +88,7 @@ bool CharactersState::handleEvent(const sf::Event& event)
     {
         if (mRow <= ROW_NUM - 2)
             mRow ++;
-        else
+        else //If the cursor goes beyond the bottom, it will return to the top
             mRow = 0;
 
     }
@@ -96,24 +96,24 @@ bool CharactersState::handleEvent(const sf::Event& event)
     {
         if (mCol > 0)
             mCol--;
-        else
+        else //If the cursor goes beyond the left end, it will return to the right end
             mCol = COL_NUM - 1;
     }
     else if (event.key.code == sf::Keyboard::Right)
     {
         if (mCol <= COL_NUM - 2)
             mCol ++;
-        else
+        else //If the cursor goes beyond the right end, it will return to the left end
             mCol = 0;
 
     }
-    else if (event.key.code == sf::Keyboard::Return)
+    else if (event.key.code == sf::Keyboard::Return) //Choose this character and return to menu
     {
         std::size_t index = mRow*COL_NUM + mCol;
         mPlayerInfo.textureID = mCharacterTextureID[index];
         requestStackPop();
     }
-    else if (event.key.code == sf::Keyboard::Escape)
+    else if (event.key.code == sf::Keyboard::Escape) //Escape this state and return to menu
     {
         requestStackPop();
     }

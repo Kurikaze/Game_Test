@@ -1,3 +1,14 @@
+/***********************************************************************************
+ * LeaderboardState.cpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Implementation file for class LeaderboardState.
+ ************************************************************************************/
+
+
 #include "include/LeaderBoardState.hpp"
 
 #include <string>
@@ -58,7 +69,7 @@ LeaderboardState::LeaderboardState(StateStack& stateStack, Context context)
 
 bool LeaderboardState::handleEvent(const sf::Event& event)
 {
-    if (event.type == sf::Event::KeyPressed)
+    if (event.type == sf::Event::KeyPressed) //Any key pressed, return to menu
         requestStackPop();
 
     return false;

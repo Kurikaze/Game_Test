@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1493551056 source:c:\users\huy\documents\cpp_projects\game_test\src\main.cpp
+1496992587 source:c:\users\huy\documents\cpp_projects\game_test\src\main.cpp
 	"include/Application.hpp"
 	<iostream>
 
@@ -411,19 +411,19 @@
 	"include/ResourceIdentifiers.hpp"
 	"include/gameTypes.h"
 
-1494572996 c:\users\huy\documents\cpp_projects\game_test\\include\gameconstants.hpp
+1496993894 c:\users\huy\documents\cpp_projects\game_test\\include\gameconstants.hpp
 
-1492416163 c:\users\huy\documents\cpp_projects\game_test\\include\animatedsprite.hpp
+1496984664 c:\users\huy\documents\cpp_projects\game_test\\include\animatedsprite.hpp
 	<vector>
 	<SFML/Graphics/Sprite.hpp>
 	<SFML/Graphics/Texture.hpp>
 	<SFML/Graphics/Rect.hpp>
 	<SFML/System/Vector2.hpp>
 
-1492416570 source:c:\users\huy\documents\cpp_projects\game_test\src\animatedsprite.cpp
+1496985103 source:c:\users\huy\documents\cpp_projects\game_test\src\animatedsprite.cpp
 	"include/AnimatedSprite.hpp"
 
-1493895299 c:\users\huy\documents\cpp_projects\game_test\\include\scenenode.hpp
+1497087693 c:\users\huy\documents\cpp_projects\game_test\\include\scenenode.hpp
 	<vector>
 	<memory>
 	<SFML/Graphics/Drawable.hpp>
@@ -435,42 +435,42 @@
 	<SFML/System/Vector2.hpp>
 	<SFML/Graphics/Transform.hpp>
 	<SFML/Graphics/CircleShape.hpp>
-	"include/gameTypes.h"
+	"include/gameTypes.hpp"
 
-1493896190 source:c:\users\huy\documents\cpp_projects\game_test\src\scenenode.cpp
+1496986550 source:c:\users\huy\documents\cpp_projects\game_test\src\scenenode.cpp
 	"include/SceneNode.hpp"
 	<algorithm>
 	<cassert>
-	"include/gameTypes.h"
+	"include/gameTypes.hpp"
 	"include/Command.hpp"
 	<iostream>
 
-1493634395 source:c:\users\huy\documents\cpp_projects\game_test\src\entity.cpp
+1496982652 source:c:\users\huy\documents\cpp_projects\game_test\src\entity.cpp
 	"include/Entity.hpp"
 
-1493625837 c:\users\huy\documents\cpp_projects\game_test\\include\entity.hpp
+1496985697 c:\users\huy\documents\cpp_projects\game_test\\include\entity.hpp
 	<SFML/System/Vector2.hpp>
 	<SFML/Graphics/Sprite.hpp>
 	"include/SceneNode.hpp"
 
-1495691578 source:c:\users\huy\documents\cpp_projects\game_test\src\animal.cpp
+1496992041 source:c:\users\huy\documents\cpp_projects\game_test\src\animal.cpp
 	"include/Animal.hpp"
 
-1494318644 c:\users\huy\documents\cpp_projects\game_test\\include\animal.hpp
+1496991979 c:\users\huy\documents\cpp_projects\game_test\\include\animal.hpp
 	<SFML/Graphics/Rect.hpp>
 	"include/Entity.hpp"
 	"include/AnimatedSprite.hpp"
-	"include/gameTypes.h"
+	"include/gameTypes.hpp"
 	"include/ResourceIdentifiers.hpp"
 
 1494518990 c:\users\huy\documents\cpp_projects\game_test\\include\gametypes.h
 
-1494576175 c:\users\huy\documents\cpp_projects\game_test\\include\resourceidentifiers.hpp
+1496982083 c:\users\huy\documents\cpp_projects\game_test\\include\resourceidentifiers.hpp
 	"include/ResourceHolder.hpp"
 	<SFML/Graphics/Texture.hpp>
 	<SFML/Graphics/Font.hpp>
 
-1491906608 c:\users\huy\documents\cpp_projects\game_test\\include\resourceholder.hpp
+1496992421 c:\users\huy\documents\cpp_projects\game_test\\include\resourceholder.hpp
 	<string>
 	<map>
 	<cassert>
@@ -478,9 +478,9 @@
 	<stdexcept>
 	"include/ResourceHolder.inl"
 
-1491906783 c:\users\huy\documents\cpp_projects\game_test\\include\resourceholder.inl
+1496981936 c:\users\huy\documents\cpp_projects\game_test\\include\resourceholder.inl
 
-1493551559 c:\users\huy\documents\cpp_projects\game_test\\include\spritenode.hpp
+1496982431 c:\users\huy\documents\cpp_projects\game_test\\include\spritenode.hpp
 	"include/SceneNode.hpp"
 	<SFML/Graphics/Sprite.hpp>
 	<SFML/Graphics/Texture.hpp>
@@ -488,10 +488,10 @@
 	<SFML/Graphics/RenderStates.hpp>
 	<SFML/Graphics/Rect.hpp>
 
-1493551559 source:c:\users\huy\documents\cpp_projects\game_test\src\spritenode.cpp
+1496978223 source:c:\users\huy\documents\cpp_projects\game_test\src\spritenode.cpp
 	"include/SpriteNode.hpp"
 
-1495694477 source:c:\users\huy\documents\cpp_projects\game_test\src\gameworld.cpp
+1496991661 source:c:\users\huy\documents\cpp_projects\game_test\src\gameworld.cpp
 	"include/GameWorld.hpp"
 	<algorithm>
 	<iostream>
@@ -502,7 +502,7 @@
 	<SFML/Graphics/Font.hpp>
 	<SFML/Graphics/Text.hpp>
 
-1494572274 c:\users\huy\documents\cpp_projects\game_test\\include\gameworld.hpp
+1496991080 c:\users\huy\documents\cpp_projects\game_test\\include\gameworld.hpp
 	<array>
 	<SFML/System/NonCopyable.hpp>
 	<SFML/Graphics/RenderWindow.hpp>
@@ -516,22 +516,22 @@
 	"include/Object.hpp"
 	"include/Animal.hpp"
 	"include/ResourceIdentifiers.hpp"
-	"include/gameTypes.h"
+	"include/gameTypes.hpp"
 	"include/gameConstants.hpp"
 	"include/CommandQueue.hpp"
 	"include/PlayerInfo.hpp"
 
-1493095241 source:c:\users\huy\documents\cpp_projects\game_test\src\commandqueue.cpp
+1496985460 source:c:\users\huy\documents\cpp_projects\game_test\src\commandqueue.cpp
 	"include/CommandQueue.hpp"
 
-1493095279 c:\users\huy\documents\cpp_projects\game_test\\include\commandqueue.hpp
+1496985448 c:\users\huy\documents\cpp_projects\game_test\\include\commandqueue.hpp
 	<queue>
 	"include/Command.hpp"
 
-1493608682 c:\users\huy\documents\cpp_projects\game_test\\include\command.hpp
+1496985280 c:\users\huy\documents\cpp_projects\game_test\\include\command.hpp
 	<functional>
 	<SFML/System/Time.hpp>
-	"include/gameTypes.h"
+	"include/gameTypes.hpp"
 
 1493137815 source:c:\users\huy\documents\cpp_projects\game_test\src\gameapp.cpp
 	<iostream>
@@ -546,10 +546,10 @@
 	"include/GameWorld.hpp"
 	"include/PlayerInput.hpp"
 
-1493137590 c:\users\huy\documents\cpp_projects\game_test\\include\playerinput.hpp
+1496986169 c:\users\huy\documents\cpp_projects\game_test\\include\playerinput.hpp
 	<SFML/Window/Event.hpp>
 
-1494573186 source:c:\users\huy\documents\cpp_projects\game_test\src\playerinput.cpp
+1496992183 source:c:\users\huy\documents\cpp_projects\game_test\src\playerinput.cpp
 	"include/PlayerInput.hpp"
 	<iostream>
 	<SFML/Window/Keyboard.hpp>
@@ -557,50 +557,50 @@
 	"include/CommandQueue.hpp"
 	"include/gameConstants.hpp"
 
-1494845122 source:c:\users\huy\documents\cpp_projects\game_test\src\state.cpp
+1496912165 source:c:\users\huy\documents\cpp_projects\game_test\src\state.cpp
 	"include/State.hpp"
 	"include/StateStack.hpp"
 
-1494846221 c:\users\huy\documents\cpp_projects\game_test\\include\state.hpp
+1496992837 c:\users\huy\documents\cpp_projects\game_test\\include\state.hpp
 	<memory>
 	<SFML/System/Time.hpp>
 	<SFML/Window/Event.hpp>
 	<SFML/Graphics/RenderWindow.hpp>
 	"include/ResourceIdentifiers.hpp"
-	"include/gameTypes.h"
+	"include/gameTypes.hpp"
 	"include/PlayerInfo.hpp"
 	"include/MusicPlayer.hpp"
 
-1494844920 c:\users\huy\documents\cpp_projects\game_test\\include\statestack.hpp
+1496978936 c:\users\huy\documents\cpp_projects\game_test\\include\statestack.hpp
 	<functional>
 	<map>
 	<SFML/Window/Event.hpp>
 	<SFML/System/Time.hpp>
 	"include/State.hpp"
-	"include/gameTypes.h"
+	"include/gameTypes.hpp"
 
-1494844814 source:c:\users\huy\documents\cpp_projects\game_test\src\statestack.cpp
+1496992977 source:c:\users\huy\documents\cpp_projects\game_test\src\statestack.cpp
 	"include/StateStack.hpp"
 	<cassert>
 
-1493886620 source:c:\users\huy\documents\cpp_projects\game_test\src\gamestate.cpp
+1496995449 source:c:\users\huy\documents\cpp_projects\game_test\src\gamestate.cpp
 	"include/GameState.hpp"
 
-1493462794 c:\users\huy\documents\cpp_projects\game_test\\include\gamestate.hpp
+1496995293 c:\users\huy\documents\cpp_projects\game_test\\include\gamestate.hpp
 	"include/State.hpp"
 	"include/GameWorld.hpp"
 	"include/PlayerInput.hpp"
 
-1494576370 source:c:\users\huy\documents\cpp_projects\game_test\src\pausestate.cpp
+1496996038 source:c:\users\huy\documents\cpp_projects\game_test\src\pausestate.cpp
 	"include/PauseState.hpp"
 	<SFML/Graphics/RectangleShape.hpp>
 
-1494575233 c:\users\huy\documents\cpp_projects\game_test\\include\pausestate.hpp
+1496996059 c:\users\huy\documents\cpp_projects\game_test\\include\pausestate.hpp
 	<array>
 	"include/State.hpp"
 	<SFML/Graphics/Text.hpp>
 
-1495374752 source:c:\users\huy\documents\cpp_projects\game_test\src\application.cpp
+1496912599 source:c:\users\huy\documents\cpp_projects\game_test\src\application.cpp
 	"include/Application.hpp"
 	"include/gameConstants.hpp"
 	<string>
@@ -617,18 +617,18 @@
 	"include/PlayerCreationState.hpp"
 	"include/LeaderBoardState.hpp"
 
-1494846528 c:\users\huy\documents\cpp_projects\game_test\\include\application.hpp
+1496992614 c:\users\huy\documents\cpp_projects\game_test\\include\application.hpp
 	<string>
 	<SFML/System/Time.hpp>
 	<SFML/Graphics/RenderWindow.hpp>
 	<SFML/Graphics/Text.hpp>
 	"include/ResourceIdentifiers.hpp"
-	"include/gameTypes.h"
+	"include/gameTypes.hpp"
 	"include/State.hpp"
 	"include/StateStack.hpp"
 	"include/PlayerInfo.hpp"
 
-1494846595 c:\users\huy\documents\cpp_projects\game_test\\include\menustate.hpp
+1496995691 c:\users\huy\documents\cpp_projects\game_test\\include\menustate.hpp
 	<array>
 	<vector>
 	<string>
@@ -638,17 +638,17 @@
 	<SFML/Graphics/Text.hpp>
 	"include/State.hpp"
 
-1494846698 source:c:\users\huy\documents\cpp_projects\game_test\src\menustate.cpp
+1496995829 source:c:\users\huy\documents\cpp_projects\game_test\src\menustate.cpp
 	"include/MenuState.hpp"
 	"include/StateStack.hpp"
 
-1495691578 source:c:\users\huy\documents\cpp_projects\game_test\src\object.cpp
+1496985875 source:c:\users\huy\documents\cpp_projects\game_test\src\object.cpp
 	"include/Object.hpp"
 
-1493632584 c:\users\huy\documents\cpp_projects\game_test\\include\object.hpp
+1496985766 c:\users\huy\documents\cpp_projects\game_test\\include\object.hpp
 	"include/Entity.hpp"
 
-1494519507 source:c:\users\huy\documents\cpp_projects\game_test\src\gameoverstate.cpp
+1496996997 source:c:\users\huy\documents\cpp_projects\game_test\src\gameoverstate.cpp
 	"include/GameOverState.hpp"
 	"include/gameConstants.hpp"
 	<SFML/Graphics/RectangleShape.hpp>
@@ -656,24 +656,24 @@
 	<sstream>
 	<iostream>
 
-1494515691 c:\users\huy\documents\cpp_projects\game_test\\include\gameoverstate.hpp
+1496994244 c:\users\huy\documents\cpp_projects\game_test\\include\gameoverstate.hpp
 	<SFML/Graphics/RenderWindow.hpp>
 	<SFML/Window/Event.hpp>
 	<SFML/Graphics/Text.hpp>
 	<SFML/System/Time.hpp>
 	"include/State.hpp"
 
-1493816391 source:c:\users\huy\documents\cpp_projects\game_test\src\countdownstate.cpp
+1496995431 source:c:\users\huy\documents\cpp_projects\game_test\src\countdownstate.cpp
 	"include/CountDownState.hpp"
 	<SFML/Graphics/RectangleShape.hpp>
 
-1493816391 c:\users\huy\documents\cpp_projects\game_test\\include\countdownstate.hpp
+1496993854 c:\users\huy\documents\cpp_projects\game_test\\include\countdownstate.hpp
 	"include/State.hpp"
 	<SFML/Graphics/Text.hpp>
 	<SFML/System/Time.hpp>
 	<SFML/Graphics/RenderWindow.hpp>
 
-1494499040 c:\users\huy\documents\cpp_projects\game_test\\include\playerinfo.hpp
+1496985994 c:\users\huy\documents\cpp_projects\game_test\\include\playerinfo.hpp
 	"include/ResourceIdentifiers.hpp"
 
 1494483275 source:c:\users\huy\documents\cpp_projects\game_test\src\choosingstate.cpp
@@ -689,7 +689,7 @@
 	<SFML/Graphics/Text.hpp>
 	<SFML/Graphics/RectangleShape.hpp>
 
-1493882545 c:\users\huy\documents\cpp_projects\game_test\\include\musicplayer.hpp
+1496993104 c:\users\huy\documents\cpp_projects\game_test\\include\musicplayer.hpp
 	<map>
 	<string>
 	<SFML/System/NonCopyable.hpp>
@@ -730,10 +730,10 @@
 	<SFML/System/Time.hpp>
 	<string>
 
-1493882009 source:c:\users\huy\documents\cpp_projects\game_test\src\musicplayer.cpp
+1496993134 source:c:\users\huy\documents\cpp_projects\game_test\src\musicplayer.cpp
 	"include/MusicPlayer.hpp"
 
-1494520498 c:\users\huy\documents\cpp_projects\game_test\\include\charactersstate.hpp
+1496993414 c:\users\huy\documents\cpp_projects\game_test\\include\charactersstate.hpp
 	<array>
 	"include/State.hpp"
 	"include/ResourceIdentifiers.hpp"
@@ -742,53 +742,55 @@
 	<SFML/Graphics/Text.hpp>
 	<SFML/Graphics/RectangleShape.hpp>
 
-1494856139 source:c:\users\huy\documents\cpp_projects\game_test\src\charactersstate.cpp
+1496995390 source:c:\users\huy\documents\cpp_projects\game_test\src\charactersstate.cpp
 	"include/CharactersState.hpp"
 	<SFML/Graphics/Font.hpp>
 
-1494848569 c:\users\huy\documents\cpp_projects\game_test\\include\playersstate.hpp
+1496996420 c:\users\huy\documents\cpp_projects\game_test\\include\playersstate.hpp
 	<string>
 	<vector>
 	<SFML/Graphics/Sprite.hpp>
 	<SFML/Graphics/Text.hpp>
 	"include/State.hpp"
 
-1495374488 source:c:\users\huy\documents\cpp_projects\game_test\src\playersstate.cpp
+1496996699 source:c:\users\huy\documents\cpp_projects\game_test\src\playersstate.cpp
 	"include/PlayersState.hpp"
 	<SFML/Graphics/RectangleShape.hpp>
 	<fstream>
 
-1495374844 source:c:\users\huy\documents\cpp_projects\game_test\src\playercreationstate.cpp
+1496996284 source:c:\users\huy\documents\cpp_projects\game_test\src\playercreationstate.cpp
 	<iostream>
 	<fstream>
 	<sstream>
 	<ctype.h>
 	"include/PlayerCreationState.hpp"
 
-1494577246 c:\users\huy\documents\cpp_projects\game_test\\include\playercreationstate.hpp
+1496996347 c:\users\huy\documents\cpp_projects\game_test\\include\playercreationstate.hpp
 	<string>
 	<SFML/Graphics/Sprite.hpp>
 	<SFML/Graphics/Text.hpp>
 	"include/State.hpp"
 
-1494520289 source:c:\users\huy\documents\cpp_projects\game_test\src\leaderboardstate.cpp
+1496996644 source:c:\users\huy\documents\cpp_projects\game_test\src\leaderboardstate.cpp
 	"include/LeaderBoardState.hpp"
 	<string>
 	<fstream>
 	<sstream>
 
-1494521714 c:\users\huy\documents\cpp_projects\game_test\\include\leaderboardstate.hpp
+1496995588 c:\users\huy\documents\cpp_projects\game_test\\include\leaderboardstate.hpp
 	<array>
 	<SFML/Graphics/Text.hpp>
 	<SFML/Graphics/Sprite.hpp>
 	"include/State.hpp"
 	"include/gameConstants.hpp"
 
-1495695981 source:c:\users\huy\documents\cpp_projects\game_test\src\titlestate.cpp
+1496996935 source:c:\users\huy\documents\cpp_projects\game_test\src\titlestate.cpp
 	"include/TitleState.hpp"
 
-1494853734 c:\users\huy\documents\cpp_projects\game_test\\include\titlestate.hpp
+1496996908 c:\users\huy\documents\cpp_projects\game_test\\include\titlestate.hpp
 	"include/State.hpp"
 	<SFML/Graphics/Text.hpp>
 	<SFML/Graphics/Sprite.hpp>
+
+1496985547 c:\users\huy\documents\cpp_projects\game_test\\include\gametypes.hpp
 

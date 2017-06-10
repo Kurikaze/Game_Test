@@ -1,3 +1,13 @@
+/***********************************************************************************
+ * AnimatedSprite.cpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Implementation file for class AnimatedSprite.
+ ************************************************************************************/
+
 #include "include/AnimatedSprite.hpp"
 AnimatedSprite::AnimatedSprite()
     : Sprite()
@@ -50,13 +60,19 @@ void AnimatedSprite::addSpriteRect(const sf::IntRect& rect)
 
 void AnimatedSprite::performAnimation()
 {
-    static float currentIndex = 0;
-    int total = mSpritesPerRow * mSpritesPerCol;
-    if (static_cast<int>(currentIndex) >= total) currentIndex = 0;
-    setTextureRect(mSpriteRects[currentIndex]);
+    static float currentIndex = 0; //Current index needs to be float type, since it has to be increased by mFrequency for each frame
+    int total = mSpritesPerRow * mSpritesPerCol; //Total number of sprites
+
+    if (static_cast<int>(currentIndex) >= total)
+        currentIndex = 0;
+
+    setTextureRect(mSpriteRects[static_cast<int>(currentIndex)]);//setTextureRect() is a public function of sf::Sprite
+
     currentIndex += mFrequency;
 }
 
+
+//////////////////////////PRIVATE
 void AnimatedSprite::initSpriteRects()
 {
     static int r = 0;
