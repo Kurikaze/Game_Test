@@ -1,3 +1,15 @@
+/***********************************************************************************
+ * PlayerCreationState.cpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Implementation file for class PlayerCreationState.
+ ************************************************************************************/
+
+
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -42,18 +54,18 @@ bool PlayerCreationState::handleEvent(const sf::Event& event)
 {
     if (event.type == sf::Event::TextEntered)
     {
-        if (event.text.unicode == 27) //Escape
+        if (event.text.unicode == 27) //Escape pressed, return to menu.
         {
             requestStackPop();
         }
-        else if (event.text.unicode == 8 || event.text.unicode == 127)
+        else if (event.text.unicode == 8 || event.text.unicode == 127) //Backspace is pressed, delete previous character.
         {
             if (mPlayerName.length() > 0)
                 mPlayerName.pop_back();
 
         }
 
-        else if (event.text.unicode < 128 && event.text.unicode >= 33)
+        else if (event.text.unicode < 128 && event.text.unicode >= 33) //Normal character
         {
             char c = static_cast<char>(event.text.unicode);
             std::cout << "ASCII character typed: " << c << std::endl;
@@ -62,7 +74,7 @@ bool PlayerCreationState::handleEvent(const sf::Event& event)
         }
 
     }
-    else if (event.type == sf::Event::KeyPressed)
+    else if (event.type == sf::Event::KeyPressed) //Name entered
     {
         if (event.key.code == sf::Keyboard::Return)
         {
@@ -87,7 +99,7 @@ bool PlayerCreationState::handleEvent(const sf::Event& event)
                 std::cout << "Invalid name" << std::endl;
                 mErrorText.setFillColor(sf::Color::Red);
             }
-            else
+            else //If no errors
             {
                 std::cout << "Name is: " << mPlayerName << std::endl;
 

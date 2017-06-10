@@ -82,5 +82,6 @@ bool Entity::isAlive() const
 /////////////////PROTECTED
 void Entity::updateCurrent(sf::Time dt)
 {
-    this->move(mVelocity * dt.asSeconds()); //move is a function of sf::Transformable
+    this->move(mVelocity * dt.asSeconds()); //move() is a function of sf::Transformable
+
 }

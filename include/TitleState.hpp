@@ -1,3 +1,13 @@
+/***********************************************************************************
+ * SceneNode.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Display title screen of the game.
+ ************************************************************************************/
+
 #ifndef TITLESTATE_HPP_INCLUDED
 #define TITLESTATE_HPP_INCLUDED
 

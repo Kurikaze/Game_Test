@@ -1,3 +1,14 @@
+/***********************************************************************************
+ * PlayerInfo.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Hold info of player (name, texture id and score)
+ ************************************************************************************/
+
+
 #ifndef PLAYERINFO_HPP_INCLUDED
 #define PLAYERINFO_HPP_INCLUDED
 #include "include/ResourceIdentifiers.hpp"

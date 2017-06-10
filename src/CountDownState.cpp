@@ -1,3 +1,14 @@
+/***********************************************************************************
+ * CountDownState.cpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Implementation file for class CountDownState.
+ ************************************************************************************/
+
+
 #include "include/CountDownState.hpp"
 #include <SFML/Graphics/RectangleShape.hpp>
 
@@ -29,17 +40,17 @@ bool CountDownState::update(sf::Time dt)
 	mElapsedTime += dt;
 	if (mElapsedTime < sf::seconds(1))
 	{
-        mText.setString("3");
+        mText.setString("3"); // 3 seconds left
 	}
 	else if (mElapsedTime < sf::seconds(2))
 	{
-        mText.setString("2");
+        mText.setString("2"); // 2 seconds left
 	}
     else if (mElapsedTime < sf::seconds(3))
     {
-        mText.setString("1");
+        mText.setString("1"); // 1 second left
     }
-    else
+    else //Time's up. Start game.
     {
         requestStackPop();
     }
@@ -51,7 +62,7 @@ void CountDownState::draw()
 {
     mWindow.setView(mWindow.getDefaultView());
     sf::RectangleShape backgroundShape(sf::Vector2f(getContext().window->getSize()));
-    backgroundShape.setFillColor(sf::Color(0, 0, 0, 150));
+    backgroundShape.setFillColor(sf::Color(0, 0, 0, 150)); //Half-transparent background (in order to see the game)
 
     mWindow.draw(backgroundShape);
     mWindow.draw(mText);

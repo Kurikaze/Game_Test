@@ -42,7 +42,7 @@ GameWorld::GameWorld(sf::RenderWindow& window, PlayerInfo& info)
     , mIsPickupSpawned(false)
 
 {
-    //Seed the random function
+    //Seed the random function by the time in seconds
     srand(static_cast<unsigned int>(time(0)));
 
     loadTextures();
@@ -51,9 +51,10 @@ GameWorld::GameWorld(sf::RenderWindow& window, PlayerInfo& info)
 
 void GameWorld::update(sf::Time dt)
 {
-    //Update distance
+    //Update distance travelled
     mDistance += mPlayer->getVelocity().x * dt.asSeconds();
-    if (mDistance >= BGR_WIDTH)
+
+    if (mDistance >= BGR_WIDTH) //Count number of Background passed
     {
         mBackgroundCount++;
         mTotalBackgroundCount++;
@@ -66,24 +67,22 @@ void GameWorld::update(sf::Time dt)
     //Destroy entities outside view
     destroyEntitiesOutsideView();
 
-    //Forward commands
+    //Forward commands to the SceneGraph
     while (!mCommandQueue.isEmpty())
     {
         mSceneRoot.onCommand(mCommandQueue.pop(), dt);
     }
 
     //Spawn obstacle every 500 pixels
-
     if (!mIsObstacleSpawned && mDistance > 500)
     {
-        unsigned int i =  1 + rand()%3;
-        std::cout << "Obstacles spawned: " << i << std::endl;
+        unsigned int i =  1 + rand()%3; //Random the type of obstacle to spawn
+        std::cout << "Obstacles of type: " << i << " spawned." << std::endl;
         spawnObstacle(i);
         mIsObstacleSpawned = true;
     }
 
     //Spawn pickup every 1500 pixels
-
     if (!mIsPickupSpawned && mDistance > 500 && mBackgroundCount > 0 && mBackgroundCount%2 == 0)
     {
         spawnPickup();
@@ -95,7 +94,8 @@ void GameWorld::update(sf::Time dt)
     //Handle collisions
     handleCollision();
 
-    //Infinite background scrolling
+    //Infinite background scrolling (if the number of backgrounds passed exceeds (BGR_MULTIPLIER - 1),
+    //move the background to distance = distance travelled)
     if (mBackgroundCount == (BGR_MULTIPLIER-1))
     {
         mSceneLayers[BACKGROUND]->move(BGR_WIDTH*(BGR_MULTIPLIER-1), 0.f);
@@ -104,7 +104,7 @@ void GameWorld::update(sf::Time dt)
         mBackgroundCount = 0;
     }
 
-    //Hit the ground check
+    //If player falls below the ground, stop the falling and put him at the ground
     sf::Vector2f position = mPlayer->getWorldPosition();
     if (position.y > mSpawnPosition.y)
     {
@@ -114,20 +114,19 @@ void GameWorld::update(sf::Time dt)
         mPlayer->setJumping(false);
     }
 
-    //Perform jump
+    //Apply vertical acceleration while player is jumping
     if (mPlayer->isJumping())
     {
         mPlayer->accelerate(0.f, g);
 
     }
-    else  //Move player along x direction
+    else  //Apply horizontal acceleration while player is on the ground
     {
         mPlayer->accelerate(gx, 0.f);
     }
 
-    //Player's velocity on x must not exceed SCROLL_SPEED
+    //Player's horizontal velocity (x-component) must not exceed SCROLL_SPEED
     mPlayer->setVelocity(std::min(mPlayer->getVelocity().x, SCROLL_SPEED), mPlayer->getVelocity().y);
-
 
 
      //Update hearts
@@ -135,8 +134,10 @@ void GameWorld::update(sf::Time dt)
 
     //Remove all destroyed entities
     mSceneRoot.removeDeadNodes();
-    //Move the view
+
+    //Move the camera with player (the view)
     mWorldView.move(mPlayer->getVelocity().x * dt.asSeconds(), 0.f);
+
     //Update all scene nodes
     mSceneRoot.update(dt);
 }
@@ -145,9 +146,9 @@ void GameWorld::update(sf::Time dt)
 void GameWorld::draw()
 {
     mWindow.setView(mWorldView);
-    mWindow.draw(mSceneRoot);
+    mWindow.draw(mSceneRoot); //Only need to draw the greatest grandparent of all the node (see SceneNode.cpp)
 
-    //Display distance travelled
+    //Display distance travelled on game screen
     sf::Font font;
     font.loadFromFile("media/fonts/Sansation.ttf");
     sf::Text text;
@@ -241,7 +242,7 @@ void GameWorld::buildScene()
     mSceneLayers[FRONT]->attachChild(std::move(player));
 
 
-    //Create information items (hearts)
+    //Create information items (hearts - represent hitpoints)
     std::unique_ptr<Object> heart_0(new Object(mTextures.get(TextureID::HEART)));
     heart_0->setCategory(Category::NONE);
     heart_0->setPosition(10.f, 10.f);
@@ -255,6 +256,8 @@ void GameWorld::buildScene()
         mHearts[i] = heart.get();
         heart_0->attachChild(std::move(heart));
     }
+
+    //Attach hearts to Info layer (since it represents hitpoints)
     mSceneLayers[INFO]->attachChild(std::move(heart_0));
 
 }
@@ -262,13 +265,16 @@ void GameWorld::buildScene()
 
 void GameWorld::spawnObstacle(unsigned int num)
 {
+        //Create parent obstacle
         std::unique_ptr<Object> cactus_0(new Object(mTextures.get(TextureID::CACTUS)));
         cactus_0->setCategory(Category::OBSTACLE);
         cactus_0->setOrigin(cactus_0->getBoundingRect().width/2.f, cactus_0->getBoundingRect().height/2.f);
-        //Random position for main obstacle
+
+        //Random position for parent obstacle
         int free_var = rand() % 150 + 1;
         cactus_0->setPosition(mPlayer->getWorldPosition().x + 660.f + free_var, mSpawnPosition.y + 20.f);
-        //Create sub obstacle to attach to the main one
+
+        //Create child obstacle to attach to the parent obstacle
         for (std::size_t k = 1; k < num; k++)
         {
             std::unique_ptr<Object> cactus(new Object(mTextures.get(TextureID::CACTUS)));
@@ -277,15 +283,20 @@ void GameWorld::spawnObstacle(unsigned int num)
             cactus->setPosition(sf::Vector2f(obs_distance, 0.f));
             cactus_0->attachChild(std::move(cactus));
         }
+
+        //Attach all obstacle to Front layer
         mSceneLayers[FRONT]->attachChild(std::move(cactus_0));
 
 }
 
 void GameWorld::spawnPickup()
 {
+
     std::unique_ptr<Object> heart(new Object(mTextures.get(TextureID::HEART)));
     heart->setCategory(Category::PICKUP);
     heart->setOrigin(heart->getBoundingRect().width/2.f, heart->getBoundingRect().height/2.f);
+
+    //Random position
     int free_var = rand() % 40 + 1;
     heart->setPosition(mPlayer->getWorldPosition().x + 600.f + free_var, mSpawnPosition.y + 20.f);
     mSceneLayers[FRONT]->attachChild(std::move(heart));
@@ -294,26 +305,30 @@ void GameWorld::spawnPickup()
 
 void GameWorld::handleCollision()
 {
-
+    //Store the nodes that collide with player
     std::vector<SceneNode*> colliders;
+
+    //Only check collisions in the FRONT Layer
     if (!(mPlayer->checkCollision(*mSceneLayers[FRONT], colliders)))
         mIsCollision = false;
+
     while (!colliders.empty())
     {
         SceneNode* collider = colliders.back();
-        //PICKUP
+
+        //If player collided with pickup (heart), he will be healed and the pickup will disappear
         if (collider->getCategory() == Category::PICKUP)
         {
             if (mPlayer->getHitpoints() < MAX_HP)
                 mPlayer->heal(1);
             std::cout << "HEAL" << std::endl;
-            collider->destroy();
+            collider->destroy(); //Destroy the pickup
             mIsCollision = false;
         }
-        //HIT OBSTACLE
+        //If player hit obstacle, he will lose hitpoints and bounce off; the obstacle will not be destroyed
         else if (collider->getCategory() == Category::OBSTACLE)
         {
-            if (!mIsCollision)
+            if (!mIsCollision) //Prevent multiple collisions at the same time (player will die instantly)
             {
                 mIsCollision = true;
                 if (mPlayer->getHitpoints() > 0)
@@ -323,7 +338,6 @@ void GameWorld::handleCollision()
                 //Bounce off obstacle
                 mPlayer->setVelocity(mPlayer->getVelocity()*(-1.f));
 
-
             }
         }
         colliders.pop_back();
@@ -331,10 +345,13 @@ void GameWorld::handleCollision()
 
 }
 
+
 sf::FloatRect GameWorld::getViewBounds() const
 {
     return sf::FloatRect(mWorldView.getCenter() - mWorldView.getSize() / 2.f, mWorldView.getSize());
 }
+
+
 sf::FloatRect GameWorld::getRunnerFieldBounds() const
 {
     sf::FloatRect bounds = getViewBounds();
@@ -347,14 +364,15 @@ sf::FloatRect GameWorld::getRunnerFieldBounds() const
 void GameWorld::destroyEntitiesOutsideView()
 {
     Command command;
-    command.category = Category::ENEMY_ANIMAL | Category::OBSTACLE | Category::PICKUP;
+    command.category = Category::ENEMY_ANIMAL | Category::OBSTACLE | Category::PICKUP; //Only enemy animals, obstacles and pickup can be destroyed
+
     command.action = [this](SceneNode& node, sf::Time dt)
     {
-        Entity& e = static_cast<Entity&>(node);
-        if (!getRunnerFieldBounds().intersects(e.getBoundingRect()))
+
+        if (!getRunnerFieldBounds().intersects(node.getBoundingRect()))
         {
-            e.destroy();
-            std::cout << "OUT VIEW" << std::endl;
+            node.destroy();
+            std::cout << "SceneNode OUT OF VIEW" << std::endl;
         }
 
     };
@@ -364,10 +382,12 @@ void GameWorld::destroyEntitiesOutsideView()
 void GameWorld::updateHearts(sf::Time dt)
 {
     mHearts[0]->setVelocity(mPlayer->getVelocity().x, 0.f);
+
     for (int i = 0; i < MAX_HP; i++)
     {
         mHearts[i]->setTexture(mTextures.get(TextureID::BLANK));
     }
+
     for (int i = 0; i < mPlayer->getHitpoints(); i++)
     {
         mHearts[i]->setTexture(mTextures.get(TextureID::HEART));

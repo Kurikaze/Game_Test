@@ -1,3 +1,15 @@
+/***********************************************************************************
+ * PauseState.cpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Implementation file for class PauseState.
+ ************************************************************************************/
+
+
+
 #include "include/PauseState.hpp"
 #include <SFML/Graphics/RectangleShape.hpp>
 
@@ -39,17 +51,18 @@ PauseState::PauseState(StateStack& stateStack, Context context)
         mOptions[i].setPosition(textPos);
     }
 
-
+    //Pause the game music
     context.musicPlayer->setPaused(true);
 }
 
 PauseState::~PauseState()
 {
+    //Unpause the game music
     getContext().musicPlayer->setPaused(false);
 }
 
 
-bool PauseState::handleEvent(const sf::Event& event)
+bool PauseState::handleEvent(const sf::Event& event) //Similar to the function handleEvent() in class MenuState
 {
 
     if (event.type != sf::Event::KeyPressed)
@@ -114,13 +127,13 @@ void PauseState::draw()
 
 void PauseState::updateOptionText()
 {
-    //White all text
+    //Make all text white
     for (std::size_t i = 0; i < OPTION_COUNT; i++)
     {
         mOptions[i].setFillColor(sf::Color::White);
     }
 
-    //Red selected text
+    //Make selected text red
     mOptions[mOptionIndex].setFillColor(sf::Color::Red);
 }
 

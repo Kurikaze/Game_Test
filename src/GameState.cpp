@@ -1,3 +1,14 @@
+/***********************************************************************************
+ * GameState.cpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Implementation file for class GameState.
+ ************************************************************************************/
+
+
 #include "include/GameState.hpp"
 
 GameState::GameState(StateStack& stateStack, Context context)
@@ -12,7 +23,7 @@ GameState::GameState(StateStack& stateStack, Context context)
 
 bool GameState::handleEvent(const sf::Event& event)
 {
-    //Escaped pressed, trigger pause screen
+    //Escaped pressed, trigger PauseState
     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
         requestStackPush(StateID::PAUSE);
 
@@ -27,7 +38,7 @@ bool GameState::handleEvent(const sf::Event& event)
 bool GameState::update(sf::Time dt)
 {
     mWorld.update(dt);
-    if (!mWorld.hasAlivePlayer())
+    if (!mWorld.hasAlivePlayer()) //If player dies, trigger GameOverState
     {
         (getContext().playerInfo)->score = mWorld.getScore();
         requestStackPush(StateID::GAME_OVER);

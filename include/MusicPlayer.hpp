@@ -1,3 +1,12 @@
+/***********************************************************************************
+ * MusicPlayer.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Hold and manage game music.
+ ************************************************************************************/
 #ifndef MUSICPLAYER_HPP_INCLUDED
 #define MUSICPLAYER_HPP_INCLUDED
 
@@ -23,7 +32,7 @@ private:
     std::string        getFilename(MusicID theme);
 
     sf::Music                           mMusic;
-    std::map<MusicID, std::string>      mFilenames;
+    std::map<MusicID, std::string>      mFilenames; //Store filename correspond to their id
     float                               mVolume;
 };
 

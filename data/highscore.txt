@@ -1,5 +1,5 @@
-liem 36659
-thong 33786
-liem 13678
-liem 11688
-Player 10724
+liem 5045
+thong 4045
+TienHuy 3154
+liem 3035
+TienHuy 2084

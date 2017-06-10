@@ -1,3 +1,14 @@
+/***********************************************************************************
+ * Application.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Connect all the parts of the game together in an application.
+ ************************************************************************************/
+
+
 #ifndef APPLICATION_HPP_INCLUDED
 #define APPLICATION_HPP_INCLUDED
 
@@ -8,7 +19,7 @@
 #include <SFML/Graphics/Text.hpp>
 
 #include "include/ResourceIdentifiers.hpp"
-#include "include/gameTypes.h"
+#include "include/gameTypes.hpp"
 #include "include/State.hpp"
 #include "include/StateStack.hpp"
 #include "include/PlayerInfo.hpp"

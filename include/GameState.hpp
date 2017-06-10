@@ -1,3 +1,14 @@
+/***********************************************************************************
+ * GameState.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Contain game world and handle player input.
+ ************************************************************************************/
+
+
 #ifndef GAMESTATE_HPP_INCLUDED
 #define GAMESTATE_HPP_INCLUDED
 #include "include/State.hpp"

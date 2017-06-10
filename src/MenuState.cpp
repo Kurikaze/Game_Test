@@ -1,3 +1,14 @@
+/***********************************************************************************
+ * MenuState.cpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Implementation file for class MenuState.
+ ************************************************************************************/
+
+
 #include "include/MenuState.hpp"
 #include "include/StateStack.hpp"
 
@@ -48,7 +59,7 @@ bool MenuState::handleEvent(const sf::Event& event)
 {
     if (event.type != sf::Event::KeyPressed)
         return false;
-    if (event.key.code == sf::Keyboard::Up)
+    if (event.key.code == sf::Keyboard::Up) //Point to previous option. If goes beyond top of the list, return to the bottom
     {
         if (mOptionIndex > 0)
             mOptionIndex--;
@@ -57,7 +68,7 @@ bool MenuState::handleEvent(const sf::Event& event)
 
         updateOptionText();
     }
-    else if (event.key.code == sf::Keyboard::Down)
+    else if (event.key.code == sf::Keyboard::Down) //Point to next option. If goes beyond bottom of the list, return to the top
     {
         if (mOptionIndex <= OPTION_COUNT - 2)
             mOptionIndex ++;
@@ -66,7 +77,7 @@ bool MenuState::handleEvent(const sf::Event& event)
 
         updateOptionText();
     }
-    else if (event.key.code == sf::Keyboard::Return)
+    else if (event.key.code == sf::Keyboard::Return) //Option chosen. Trigger corresponding state.
     {
         if (mOptionIndex == PLAY)
         {

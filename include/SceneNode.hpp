@@ -1,3 +1,15 @@
+/***********************************************************************************
+ * SceneNode.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Provide interface for interactions between objects in the GameWorld.
+ ************************************************************************************/
+
+
+
 #ifndef SCENENODE_HPP_INCLUDED
 #define SCENENODE_HPP_INCLUDED
 #include <vector>
@@ -11,9 +23,9 @@
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Graphics/Transform.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
-#include "include/gameTypes.h"
+#include "include/gameTypes.hpp"
 
-struct Command;
+struct Command; //Forward declaration
 
 class SceneNode : public sf::Transformable, public sf::Drawable, private sf::NonCopyable
 {
@@ -23,39 +35,43 @@ public:
                             SceneNode();
                             ~SceneNode();
 
-    void                    attachChild(UniquePtr child);
-    UniquePtr               dettachChild(const SceneNode& child);
+    void                    attachChild(UniquePtr child);   //Add new child to mChildren
+    UniquePtr               dettachChild(const SceneNode& child);   //Remove and return child from mChildren
 
-    void                    update(sf::Time dt);
+    void                    update(sf::Time dt); //Apply update to this node and all of its children
 
-    sf::Transform           getWorldTransform() const;
-    sf::Vector2f            getWorldPosition() const; //Return absolute position of top left corner
-    virtual sf::FloatRect   getBoundingRect() const;
+    sf::Transform           getWorldTransform() const;  //Get total transform of this node
+    sf::Vector2f            getWorldPosition() const; //Return absolute (global) position of top left corner (in forms of a vector)
+    virtual sf::FloatRect   getBoundingRect() const; //Get the smallest rectangle that bounds the object
 
-    void                    setCategory(Category::ID id);
-    unsigned int            getCategory() const;
+    void                    setCategory(Category::ID id); //Set category id for this node
+                                                          //(Category::ID is defined in gameTypes.hpp)
+    unsigned int            getCategory() const; //Get category id for this node
 
-    void                    onCommand(const Command& command, sf::Time dt);
+    void                    onCommand(const Command& command, sf::Time dt); //Apply command on this node and all of its children
+                                                                            //(if their categories match)
 
-    bool                    checkCollision(SceneNode& node, std::vector<SceneNode*>& colliders) const;
-    void                    removeDeadNodes();
-    bool                    isMarkedForRemoval() const;
-    virtual bool            isAlive() const;
-    virtual void            destroy(); //Overridden in Entity
+    bool                    checkCollision(SceneNode& node, std::vector<SceneNode*>& colliders) const; //Return true if *this collides with node and node's children (and false otherwise)
+                                                                                                        //All the nodes who collide with *this are added to vector colliders
+
+    void                    removeDeadNodes(); //Remove all nodes that are marked for removal
+    bool                    isMarkedForRemoval() const; //Return true if node is dead (not alive)
+    virtual bool            isAlive() const; //Return true by default (will be overridden in derived class to return true if this node is alive)
+    virtual void            destroy(); //Overridden in derived class
 
 private:
-    virtual void    draw(sf::RenderTarget& target, sf::RenderStates states) const; //Override function in sf::Drawable
+    virtual void    draw(sf::RenderTarget& target, sf::RenderStates states) const; //Override the function in sf::Drawable
                                                                                    //states contains transforms from all parents
-    virtual void    drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const; //Draw nothing here
-    void            drawChildren(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void    drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const; //Draw nothing here by default (will be overridden in derived class)
+    void            drawChildren(sf::RenderTarget& target, sf::RenderStates states) const; //Apply draw() to all children
 
-    virtual void    updateCurrent(sf::Time dt); //Update nothing here
-    void            updateChildren(sf::Time dt);
+    virtual void    updateCurrent(sf::Time dt); //Update nothing here by default (will be overridden in derived class)
+    void            updateChildren(sf::Time dt); //Apply update() to all children
 
 private:
-    std::vector<UniquePtr>  mChildren;
-    SceneNode*              mParent;
-    Category::ID            mCategory;
+    std::vector<UniquePtr>  mChildren; //Contains unique pointers to children (if these pointers are destroyed, the children they point to are also deleted)
+    SceneNode*              mParent; //Hold pointer to this node's parents
+    Category::ID            mCategory; //Hold category id of this node
 };
 
 #endif // SCENENODE_HPP_INCLUDED

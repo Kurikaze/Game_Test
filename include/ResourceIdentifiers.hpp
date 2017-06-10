@@ -1,3 +1,15 @@
+/***********************************************************************************
+ * ResourceIdentifiers.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Define all the enum ID and typedef needed for textures, fonts and music.
+ ************************************************************************************/
+
+
+
 #ifndef RESOURCEIDENTIFIERS_HPP_INCLUDED
 #define RESOURCEIDENTIFIERS_HPP_INCLUDED
 
@@ -32,12 +44,14 @@ enum class TextureID
     TRAINER_038,
     TRAINER_066,
 
+    //These are experimental ID (we have decided to use human texture instead)
     PIKACHU,
     JOLTEON,
     FENNEKIN,
     GREEN,
     STEGOSAURUS,
     CACTUS,
+    /////////////////////////////
 
     HEART
 };

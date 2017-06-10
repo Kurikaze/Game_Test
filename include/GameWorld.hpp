@@ -1,3 +1,14 @@
+/***********************************************************************************
+ * GameWorld.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * The game world, in which player runs and interact with obstacle, pickup...
+ ************************************************************************************/
+
+
 #ifndef GAMEWORLD_HPP_INCLUDED
 #define GAMEWORLD_HPP_INCLUDED
 #include <array>
@@ -13,7 +24,7 @@
 #include "include/Object.hpp"
 #include "include/Animal.hpp"
 #include "include/ResourceIdentifiers.hpp"
-#include "include/gameTypes.h"
+#include "include/gameTypes.hpp"
 #include "include/gameConstants.hpp"
 #include "include/CommandQueue.hpp"
 #include "include/PlayerInfo.hpp"
@@ -25,14 +36,19 @@ public:
 public:
     void            update(sf::Time dt);
     void            draw();
-    CommandQueue&   accessCommandQueue();
 
-    bool            hasAlivePlayer() const;
+    CommandQueue&   accessCommandQueue(); //Return reference to mCommandQueue
+    bool            hasAlivePlayer() const; //Return true if player is alive
+
     int             getDistanceTravelled();
     int             getScore();
 
 private:
-    enum Layer{BACKGROUND, FRONT, INFO, LAYER_COUNT};
+    enum Layer{BACKGROUND, FRONT, INFO, LAYER_COUNT}; //These are indices for mSceneLayers
+    //BACKGROUND layer: Include the background
+    //FRONT layer: Include player, obstacles, pickups; used for checking collision
+    //INFO layer: Include hearts (located on top left of game screen)
+    //LAYER_COUNT: The number of layers; used for defining mSceneLayers (since its an array)
 
 private:
     //Private functions
@@ -40,10 +56,12 @@ private:
     void            buildScene();
     void            spawnObstacle(unsigned int num);
     void            spawnPickup();
+
     void            handleCollision();
 
-    sf::FloatRect   getViewBounds() const;
-    sf::FloatRect   getRunnerFieldBounds() const;
+    sf::FloatRect   getViewBounds() const; //Get the bounds of the view (the rectangle of the view)
+    sf::FloatRect   getRunnerFieldBounds() const; //Get the "living" region: Anything outside this region will be destroyed
+
     void            destroyEntitiesOutsideView();
     void            updateHearts(sf::Time dt);
 
@@ -72,9 +90,9 @@ private:
     //Player
     Animal* mPlayer;
     sf::Vector2f mSpawnPosition;
+
+    //Hearts (INFO layer)
     std::array<Object*, MAX_HP> mHearts;
-
-
 
     //Logic variables
     bool mIsCollision;

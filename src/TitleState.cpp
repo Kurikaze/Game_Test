@@ -38,7 +38,7 @@ TitleState::TitleState(StateStack& stateStack, Context context)
 
 bool TitleState::handleEvent(const sf::Event& event)
 {
-    if (event.type == sf::Event::KeyPressed)
+    if (event.type == sf::Event::KeyPressed) //Any key pressed, get to menu
     {
         requestStackPop();
         requestStackPush(StateID::MENU);

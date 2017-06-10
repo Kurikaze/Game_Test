@@ -18,7 +18,7 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/System/Time.hpp>
 #include "include/State.hpp"
-#include "include/gameTypes.h"
+#include "include/gameTypes.hpp"
 
 class StateStack
 {

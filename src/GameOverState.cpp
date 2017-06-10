@@ -1,3 +1,13 @@
+/***********************************************************************************
+ * GameOverState.cpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Implementation file for class GameOverState.
+ ************************************************************************************/
+
 #include "include/GameOverState.hpp"
 #include "include/gameConstants.hpp"
 #include <SFML/Graphics/RectangleShape.hpp>
@@ -43,7 +53,7 @@ bool GameOverState::handleEvent(const sf::Event& event)
 
 bool GameOverState::update(sf::Time dt)
 {
-    // Show state for 5 seconds, after return to menu
+    // Show this state for 5 seconds, after that return to menu
 	mElapsedTime += dt;
 	if (mElapsedTime > sf::seconds(5))
 	{
@@ -69,14 +79,15 @@ void GameOverState::draw()
 
 void GameOverState::processScore()
 {
-    std::string name_arr[SCORE_COUNT];
-    int score_arr[SCORE_COUNT];
+    std::string name_arr[SCORE_COUNT]; //Store name of top players
+    int score_arr[SCORE_COUNT]; //Store their scores
 
     //READ SCORES
     std::cout << "READING FILE" << std::endl;
     std::ifstream ifile;
     ifile.open("data/highscore.txt");
-    if (!ifile.is_open())
+
+    if (!ifile.is_open()) //Check if file is opened
         throw std::runtime_error("Unable to open file: data/highscore.txt" );
     std::string line;
 
@@ -85,27 +96,36 @@ void GameOverState::processScore()
     {
         getline(ifile, line);
         std::cout << line << std::endl;
+        //Convert line to string and int
         std::stringstream convert(line);
         convert >> name_arr[index] >> score_arr[index];
         index++;
     }
     ifile.close();
 
-    //COMPARE SCORES AND UPDATE SCORE TEXT
+    //Display current score on game screen
     std::stringstream convertStr;
     convertStr << mScore;
     mScoreText.setString("Score: " + convertStr.str());
+
+    //COMPARE SCORES AND UPDATE SCORE TEXT
     for (int i = 0; i < SCORE_COUNT; i++)
     {
-        if (mScore > score_arr[i])
+        if (mScore > score_arr[i]) //If mScore larger than a score in leaderboard
         {
-            name_arr[i] = getContext().playerInfo->name;
+
+            //Move all lower entries down by one position
             for (int j = SCORE_COUNT - 1; j > i; j--)
             {
+                name_arr[j] = name_arr[j-1];
                 score_arr[j] = score_arr[j-1];
             }
 
+            //Replace leaderboard entry by player name and score
+            name_arr[i] = getContext().playerInfo->name;
             score_arr[i] = mScore;
+
+            //Display new high score
             mScoreText.setString("New High Score: " + convertStr.str());
 
             break;
@@ -115,7 +135,7 @@ void GameOverState::processScore()
 
 
     //OUTPUT SCORES
-    std::cout << "OUTPUTING FILE" << std::endl;
+    std::cout << "OUTPUTING FILE SCORE" << std::endl;
     std::ofstream ofile;
     ofile.open("data/highscore.txt");
     if (!ofile.is_open())
@@ -126,6 +146,5 @@ void GameOverState::processScore()
         if (i < SCORE_COUNT-1)
             ofile << "\n";
     }
-
     ofile.close();
 }

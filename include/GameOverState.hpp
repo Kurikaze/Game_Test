@@ -1,3 +1,13 @@
+/***********************************************************************************
+ * GameOverState.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Triggered when player dies.
+ ************************************************************************************/
+
 #ifndef GAMEOVERSTATE_HPP_INCLUDED
 #define GAMEOVERSTATE_HPP_INCLUDED
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -14,7 +24,7 @@ public:
     virtual bool    update(sf::Time dt);
     virtual void    draw();
 private:
-    void            processScore();
+    void            processScore(); //Analyze the score (if it is high enough, put it in leaderboard)
 
     sf::RenderWindow&   mWindow;
     sf::Text            mGameOverText;

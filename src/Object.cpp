@@ -1,7 +1,18 @@
+/***********************************************************************************
+ * Object.cpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Implementation file for class Object.
+ ************************************************************************************/
+
+
 #include "include/Object.hpp"
 
 Object::Object()
-    : Entity(1)
+    : Entity(1) //All object has 1 hitpoint by default
 {
 
 }
@@ -40,7 +51,9 @@ void Object::setTexture(const sf::Texture& texture, const sf::IntRect& textureRe
 
 void Object::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
+    //Uncomment the next line to draw the boundary of the object (used for debugging collision)
     //drawBound(target, states);
+
     target.draw(mSprite, states);
 }
 

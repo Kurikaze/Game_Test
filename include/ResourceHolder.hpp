@@ -14,6 +14,8 @@
  * same header file as the class definition. However, we still want to separate
  * the interface and the definition. Therefore, we need to include the implementation
  * file (ResourceHolder.inl) at the end of this file.
+ * This ideas is taken from:
+ * https://stackoverflow.com/questions/115703/storing-c-template-function-definitions-in-a-cpp-file
  ************************************************************************************/
 
 #ifndef RESOURCEHOLDER_HPP_INCLUDED
@@ -26,11 +28,11 @@
 
 template <typename ResourceType, typename IdentifierType>
 class ResourceHolder
-{ //Hold map of resources with their id
+{
 public:
                             ResourceHolder();
     void                    load(IdentifierType id, const std::string filename); //Allocate new resource and
-                                                                                //insert its pointer to map
+                                                                                //insert its unique pointer to map mResourceMap
     ResourceType&           get(IdentifierType id);         //Return reference to resource
     const ResourceType&     get(IdentifierType id) const;   //Return reference to constant resource
 

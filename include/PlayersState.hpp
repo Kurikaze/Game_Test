@@ -1,3 +1,13 @@
+/***********************************************************************************
+ * PlayersState.hpp
+ * C++ Final Project - A Certain Side Scrolling Game
+ * Vietnamese-German University
+ * Authors: Tran Tien Huy, Nguyen Huy Thong - EEIT2015
+ ************************************************************************************
+ * Description:
+ * Allow user to choose player.
+ ************************************************************************************/
+
 #ifndef PLAYERSSTATE_HPP_INCLUDED
 #define PLAYERSSTATE_HPP_INCLUDED
 
@@ -23,7 +33,7 @@ public:
 private:
     void                loadPlayers(std::string filename);
     void                updateOptionText();
-    void                moveOptionText(float dx, float dy);
+    void                moveOptionText(float dx, float dy); //Scroll list of player when the cursor moves out of screen
 
     sf::Sprite                  mBackgroundSprite;
 
